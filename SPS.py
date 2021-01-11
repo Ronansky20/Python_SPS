@@ -6,7 +6,7 @@ import time
 def clear():
     os.system("clear")
 
-# Set de instructies voor RPS
+# !Set de instructies voor RPS
 
 
 def rps_instructions():
@@ -43,7 +43,7 @@ def rps():
     global game_map
     global name
 
-    # Game Loop voor elke match of Steen Papier Schaar
+    # !Game Loop voor elke match of Steen Papier Schaar
     while True:
 
         print("--------------------------------------")
@@ -56,7 +56,7 @@ def rps():
 
         print()
 
-        # Player Input
+        # ?Player1 Input
         inp = input("Vul uw zet in : ")
         if inp.lower() == "help":
             clear()
@@ -83,23 +83,52 @@ def rps():
             rps_instructions()
             continue
 
+        # ?Player2 Input
+        inp2 = input("Vul uw zet in : ")
+        if inp.lower() == "help":
+            clear()
+            rps_instructions()
+            continue
+        elif inp.lower() == "exit":
+            clear()
+            break
+        elif inp.lower() == "steen":
+            player2_move = 0
+        elif inp.lower() == "papier":
+            player2_move = 1
+        elif inp.lower() == "schaar":
+            player2_move = 3
+        elif inp.lower() == "Steen":
+            player2_move = 0
+        elif inp.lower() == "Papier":
+            player2_move = 1
+        elif inp.lower() == "Schaar":
+            player2_move = 3
+        else:
+            clear()
+            print("Verkeerde input!")
+            rps_instructions()
+            continue
+
         print("De PC is een move aan het doen.....")
 
         print()
         time.sleep(2)
 
-        # Zorgt ervoor dat de PC een random move maakt
+        # !Zorgt ervoor dat de PC een random move maakt
         comp_move = random.randint(0, 2)
 
-        # Print de PC move
+        # !Print de PC move
         print("Computer chooses ", game_map[comp_move].upper())
 
-        # Vind de winnaar van de match
+        # ?Vind de winnaar van de match
         winner = rps_table[player_move][comp_move]
 
-        # Maakt de winnaar bekend
+        # !Maakt de winnaar bekend
         if winner == player_move:
-            print(name, "WINT!!!!!")
+            print(name1, "WINT!!!!!")
+        elif winner == player2_move:
+            print(name2, "WINT!!!!!")
         elif winner == comp_move:
             print("COMPUTER WINT!!!")
         else:
@@ -115,7 +144,7 @@ def rpsls():
     global game_map
     global name
 
-    # Game loop voor elek match Steen papier schaar Lizard Spock
+    # !Game loop voor elek match Steen papier schaar Lizard Spock
     while True:
         print("--------------------------------------")
         print("\t\tMenu")
@@ -127,8 +156,8 @@ def rpsls():
 
         print()
 
-        # Speler input
-        inp = input("Vul uw zet it : ")
+        # ?Speler1 input
+        inp = input("Vul uw zet in : ")
 
         if inp.lower() == "help":
             clear()
@@ -163,23 +192,59 @@ def rpsls():
             rpsls_instructions()
             continue
 
+        # ?Speler2 Input
+        if inp.lower() == "help":
+            clear()
+            rpsls_instructions()
+            continue
+        elif inp.lower() == "exit":
+            clear()
+            break
+        elif inp.lower() == "steen":
+            player2_move = 0
+        elif inp.lower() == "papier":
+            player2_move = 1
+        elif inp.lower() == "schaar":
+            player2_move = 2
+        elif inp.lower() == "lizard":
+            player2_move = 3
+        elif inp.lower() == "spock":
+            player2_move = 4
+        elif inp.lower() == "Steen":
+            player2_move = 0
+        elif inp.lower() == "Papier":
+            player2_move = 1
+        elif inp.lower() == "Schaar":
+            player2_move = 2
+        elif inp.lower() == "Lizard":
+            player2_move = 3
+        elif inp.lower() == "Spock":
+            player2_move = 4
+        else:
+            clear()
+            print("Verkeerde Input!")
+            rpsls_instructions()
+            continue
+
         print("De PC is een move aan het doen.....")
 
         print()
         time.sleep(2)
 
-        # Zorgt ervoor dat de PC een random move maakt
+        # !Zorgt ervoor dat de PC een random move maakt
         comp_move = random.randint(0, 4)
 
-        # Print de PC move
+        # ?Print de PC move
         print("Computer chooses ", game_map[comp_move].upper())
 
-        # Vind de winnaar van de match
+        # !Vind de winnaar van de match
         winner = rps_table[player_move][comp_move]
 
-        # Maakt de winnaar bekend
+        # ?Maakt de winnaar bekend
         if winner == player_move:
-            print(name, "WINT!!!!!")
+            print(name1, "WINT!!!!!")
+        elif winner == player2_move:
+            print(name2, "WINT!!!!!!!")
         elif winner == comp_move:
             print("COMPUTER WINT!!!")
         else:
@@ -189,23 +254,24 @@ def rpsls():
         clear()
 
 
-# De Main functie
+# !De Main functie
 if __name__ == '__main__':
     # De mapping tussen moves en nummers
     game_map = {0: "steen", 1: "papier", 2: "schaar", 3: "lizard", 4: "Spock"}
 
-    # Win->Verlies ratio voor steen papier schaar game
+    # !Win->Verlies ratio voor steen papier schaar game
     rps_table = [[-1, 1, 0], [1, -1, 2], [0, 2, -1]]
 
-    # Win -> Verlies Ratio voor steen papier schaar lizard spock game
+    # !Win -> Verlies Ratio voor steen papier schaar lizard spock game
     rpsls_table = [[-1, 1, 0, 0, 4], [1, -1, 2, 3, 1],
                    [0, 2, -1, 2, 4], [0, 3, 2, -1, 3], [4, 1, 4, 3, -1]]
 
-    name = input("Voer je naam in:")
+    name1 = input("Voer je naam in:")
+    name2 = input("Voer je naam in:")
 
 
 while True:
-    # De game loop
+    # !De game loop
     print()
     print("Tijd om te beginnen!")
     print("Welke versie van RPS wil je spelen?")
