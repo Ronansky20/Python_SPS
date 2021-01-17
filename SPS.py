@@ -276,7 +276,7 @@ while True:
     print("Tijd om te beginnen!")
     print("Welke versie van RPS wil je spelen?")
     print("Typ 1 om Rock-Paper-scissors te spelen")
-    print("Typ 2 om Rock-Paper-scissors te spelen")
+    print("Typ 2 om Rock-Paper-scissors lizard spock te spelen")
     print("Typ 3 om te stoppen")
     print()
 
